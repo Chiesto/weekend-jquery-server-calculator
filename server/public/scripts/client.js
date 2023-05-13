@@ -91,13 +91,25 @@ function renderToDom(calculation){
 }
 
 //render calculation history to the DOM
-function historyToDOM(array){
+function historyToDOM(array) {
     $('#history').empty();
-    for(item of array){
-        $('#history').append(`
-        <li>${item.num1} ${item.operator} ${item.num2} = ${item.answer}</li>
+    for (item of array) {
+        let listItem = $(`
+            <li class="li">${item.num1} ${item.operator} ${item.num2}</li>
         `);
+        //grab each of the answers not just the most recent one
+        let answer = item.answer; 
+        listItem.on('click', function() {
+            clickableHistory(answer);
+        });
+        $('#history').append(listItem);
     }
+}
+
+function clickableHistory(answer){
+    $('#answer').empty();
+    $('#answer').append(`Your answer is: <b>${answer}</b>`);
+    console.log('in clickableHistory function', answer);
 }
 
 //deletes the calculator history
