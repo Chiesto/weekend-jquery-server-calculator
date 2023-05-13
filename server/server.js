@@ -10,8 +10,8 @@ app.use(express.static('server/public'));
 
 //setting up our answer and calculation variable
 //also importing our history and calcHistory from their respective files
-const history = require('/Users/chris/Desktop/workspace/Tier2/week7/weekend-jquery-server-calculator/server/public/historyList.js');
-const calcHistory = require('/Users/chris/Desktop/workspace/Tier2/week7/weekend-jquery-server-calculator/server/public/calcHistory.js');
+const history = require('./public/historyList.js');
+let calcHistory = require('./public/calcHistory.js');
 let answer = 0;
 let calculation = {
     answer:0,
@@ -60,10 +60,16 @@ app.post('/history', function(req, res){
     res.send(calculation);
   });
 
+  // //erases our calculator history on the server side
+  app.delete('/calculatorHistory', function(req,res){
+    calcHistory=[];
+    res.sendStatus(200);
+  })
+
   app.get('/calcHistory', function(req, res){
     console.log(calcHistory);
     res.send(calcHistory);
-  })
+  });
 
 
 
