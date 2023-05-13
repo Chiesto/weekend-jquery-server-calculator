@@ -7,6 +7,7 @@ function onReady(){
     $('#minus').on('click', minusBtn);
     $('#multiply').on('click', multiplyBtn);
     $('#divide').on('click', divideBtn);
+    getCalcHistory();
 }
 
 //send our input data to the server
@@ -85,8 +86,19 @@ function renderToDom(calculation){
 function historyToDOM(array){
     $('#history').empty();
     for(item of array){
+        let coolerOperator = "";
+        if(item.operator === 'plus'){
+            coolerOperator = '+';
+        } else if(item.operator === 'minus'){
+            coolerOperator = '-';
+        } else if(item.operator === 'multiply'){
+            coolerOperator = '*';
+        }else if(item.operator === 'divide'){
+            coolerOperator = '/';
+        }
+
         $('#history').append(`
-        <li>${item.number1} ${item.operator} ${item.number2} = ${item.answer}</li>
+        <li>${item.number1} ${coolerOperator} ${item.number2} = ${item.answer}</li>
         `);
     }
 }
