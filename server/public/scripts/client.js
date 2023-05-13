@@ -96,7 +96,7 @@ function historyToDOM(array) {
     $('#history').empty();
     for (item of array) {
         let listItem = $(`
-            <li class="li">${item.num1} ${item.operator} ${item.num2}</li>
+            <li id="li">${item.num1} ${item.operator} ${item.num2}</li>
         `);
         //grab each of the answers not just the most recent one
         let answer = item.answer; 
