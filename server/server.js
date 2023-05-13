@@ -8,6 +8,8 @@ app.use(bodyParser.urlencoded({extended:true}));
 //serving up static files
 app.use(express.static('server/public'));
 
+//setting up our answer and calculation variable
+//also importing our history and calcHistory from their respective files
 const history = require('/Users/chris/Desktop/workspace/Tier2/week7/weekend-jquery-server-calculator/server/public/historyList.js');
 const calcHistory = require('/Users/chris/Desktop/workspace/Tier2/week7/weekend-jquery-server-calculator/server/public/calcHistory.js');
 let answer = 0;
@@ -35,7 +37,7 @@ app.post('/history', function(req, res){
   
   });
 
-  //sending our answer along with the inputs back to the 
+  //sending our answer along with the inputs back to the client
   app.get('/history', function(req, res){
     const item = history[history.length-1];
     if (item.plus === 'plus') {
