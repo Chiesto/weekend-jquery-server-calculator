@@ -26,11 +26,13 @@ PROBLEMS
 1. i had a huge problem trying to get the correct answer to display after i made the list items clickable. Getting them clickable just took a quick google search but that  made the whole list clickable and would only access the most recent list item.
 2. reconfiguring my variables to account for the input being send over as one item instead of 2 inputs. 
 3. after reconfiguring, my answer wouldn't display. it kept displaying as NaN or undefined. 
+4. figuring out how to use the DELETE method
 
 SOLUTIONS
 1. I figured out that, while i was in my appendHistory function, I needed to assign a variable to to the answer while I was inside of my 'for' loop THEN call my clickableHistory function with the 'answer' as a parameter. then append the history to the dom as it goes through each item. 
 2. This was just error after error. Thank god for the 'command + F' search ability. It helped me search through my server and client for object items, functions, and variables that I either changed or weren't using anymore. 
 3. in my renderToDom function, I was trying to append the array.object instead of array[array.length-1].object.. I assigned a variable to equal array[array.length-1]. This made the code clearer in my head and a little easier to read. 
+4. They haven't gotten to the DELETE method in class yet so I didn't really know how to set it up and use it. Thankfully google is full of information. Somebody else had asked a very similar question on a forum so i was able to use their example to formulate my DELETE method. 
 
 
 
