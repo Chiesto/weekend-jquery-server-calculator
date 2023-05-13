@@ -91,6 +91,7 @@ function renderToDom(calculation){
 }
 
 //render calculation history to the DOM
+// - stretch goal - makes the list items clickable
 function historyToDOM(array) {
     $('#history').empty();
     for (item of array) {
@@ -106,6 +107,7 @@ function historyToDOM(array) {
     }
 }
 
+//appends the clicked history item's answer to the element with answer ID
 function clickableHistory(answer){
     $('#answer').empty();
     $('#answer').append(`Your answer is: <b>${answer}</b>`);
@@ -125,6 +127,7 @@ function deleteHistory(){
     })
   }
 
+  //operator button on-click functions
 function plusBtn(){
     $('#plus').val('plus');
     $('#minus').val('');
@@ -162,6 +165,7 @@ function multiplyBtn(){
     const num1Value = $('#num1').val();
     $('#num1').val(num1Value + operator);
 }
+
 //number buttons on-click functions
 function numberButton(){
     const value = $(this).text();
@@ -169,6 +173,7 @@ function numberButton(){
   $('#num1').val(num1Value + value);
 }
 
+//sends our calculation (from num1 input) to the server
 function performCalculation() {
     const calculationInput = $('#num1').val();
     const [num1, operator, num2] = calculationInput.split(/(\+|\-|\*|\/)/);
