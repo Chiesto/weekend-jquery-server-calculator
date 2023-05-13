@@ -8,6 +8,7 @@ function onReady(){
     $('#multiply').on('click', multiplyBtn);
     $('#divide').on('click', divideBtn);
     $('#clearBtn').on('click', clearButton);
+    $('#clearHistoryBtn').on('click', deleteHistory);
     getCalcHistory();
 }
 
@@ -79,12 +80,8 @@ function getCalcHistory(){
 
 //render my answer to the DOM
 function renderToDom(calculation){
-    $('#history').empty();
     $('#answer').empty();
     $('#answer').append(`Your answer is: <b>${calculation.answer}</b>`);
-    $('#history').append(`
-    <li>${calculation.number1} ${calculation.operator} ${calculation.number2} = ${calculation.answer}</li>
-    `);
 }
 
 //render calculation history to the DOM
@@ -107,6 +104,19 @@ function historyToDOM(array){
         `);
     }
 }
+
+//deletes the calculator history
+function deleteHistory(){
+    $.ajax({
+      method: 'DELETE',
+      url: '/calculatorHistory'
+    }).then(function(response){
+      getCalcHistory();
+      console.log('Calculator History deleted!');
+    }).catch(function(error){
+      console.log('Problems in our deleteHistory function =>', error);
+    })
+  }
 
 function plusBtn(){
     $('#plus').val('plus');
