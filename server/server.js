@@ -53,8 +53,15 @@ app.post('/history', function(req, res){
     }
     updateCalculation();
     console.log(calculation);
+    const newCalculation = { ...calculation };
+    calcHistory.push(newCalculation);
     res.send(calculation);
   });
+
+  app.get('/calcHistory', function(req, res){
+    console.log(calcHistory);
+    res.send(calcHistory);
+  })
 
 
 

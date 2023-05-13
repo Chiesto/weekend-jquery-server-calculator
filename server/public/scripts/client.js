@@ -36,12 +36,14 @@ function postHistory(event){
         $('#num1').val('');
         $('#num2').val('');
         getHistory();
+        getCalcHistory();
     }).catch(function(error){
+        console.log('Error in our postHistory function =>', error);
         alert('Error in our postHistory function =>', error);
     }) 
 }
 
-//get our updated history from the server
+//get our answer from the server
 function getHistory(){
     $.ajax({
         method: 'GET',
@@ -50,18 +52,43 @@ function getHistory(){
         console.log('getHistory function works');
         renderToDom(response);
     }).catch(function(error){
+        console.log('getHistory function broke down =>', error);
         alert('getHistory function broke down =>', error);
     })
 }
 
-//render input history to the DOM
+//get calculation history from the server
+function getCalcHistory(){
+    $.ajax({
+        method: 'GET',
+        url: '/calcHistory'
+    }).then(function(response){
+        console.log('here is our calc history -', response);
+        historyToDOM(response)
+    }).catch(function(error){
+        console.log('getCalcHistory function doesnt work =>', error);
+        alert('getCalcHistory function doesnt work =>', error);
+    })
+}
+
+//render my answer to the DOM
 function renderToDom(calculation){
     $('#history').empty();
     $('#answer').empty();
     $('#answer').append(`Your answer is: <b>${calculation.answer}</b>`);
     $('#history').append(`
     <li>${calculation.number1} ${calculation.operator} ${calculation.number2} = ${calculation.answer}</li>
-    `)
+    `);
+}
+
+//render calculation history to the DOM
+function historyToDOM(array){
+    $('#history').empty();
+    for(item of array){
+        $('#history').append(`
+        <li>${item.number1} ${item.operator} ${item.number2} = ${item.answer}</li>
+        `);
+    }
 }
 
 function plusBtn(){
