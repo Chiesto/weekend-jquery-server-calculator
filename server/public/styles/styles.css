@@ -1,0 +1,14 @@
+#calc-name{
+    color: blue;
+}
+body{
+    background-color: aqua;
+}
+#calc-history{
+    color:blue
+}
+#full-history{
+    background-color: aliceblue;
+    display: inline-block;
+    padding: 10px;
+}

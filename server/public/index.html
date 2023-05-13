@@ -10,6 +10,8 @@
     <title>Server Side Calculator</title>
 </head>
 <body>
+    <h1 id="calc-name">Calculator</h1>
+    <br>
     <div id="form">
         <input type="number" id="num1" placeholder="Number 1">
         <button id="plus">+</button>
@@ -20,11 +22,12 @@
         <button id="clearBtn">C</button>
         <button id="enterBtn">Enter</button>
     </div>
+    <br>
     <h2><span id="answer"></span></h2>
     <br>
-    <br>
-    <h3>Calculation History:</h3>
-    <ul id="history"></ul>
-
+    <div id="full-history">
+        <h3 id="calc-history">Calculation History:</h3>
+        <ul id="history"></ul>
+    </div>
 </body>
 </html>
