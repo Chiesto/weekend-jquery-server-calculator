@@ -64,7 +64,7 @@ app.post('/history', function(req, res){
   app.delete('/calculatorHistory', function(req,res){
     calcHistory=[];
     res.sendStatus(200);
-  })
+  });
 
   app.get('/calcHistory', function(req, res){
     console.log(calcHistory);
