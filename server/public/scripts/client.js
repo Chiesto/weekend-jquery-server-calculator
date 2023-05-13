@@ -10,11 +10,13 @@ function onReady(){
     $('#clearBtn').on('click', clearButton);
     getCalcHistory();
 }
+
 //clears the input fields when you press 'C' button
 function clearButton(){
     $('#num1').val('');
     $('#num2').val('');
 }
+
 //send our input data to the server
 function postHistory(event){
     event.preventDefault();
