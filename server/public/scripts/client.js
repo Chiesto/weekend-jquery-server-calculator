@@ -7,9 +7,14 @@ function onReady(){
     $('#minus').on('click', minusBtn);
     $('#multiply').on('click', multiplyBtn);
     $('#divide').on('click', divideBtn);
+    $('#clearBtn').on('click', clearButton);
     getCalcHistory();
 }
-
+//clears the input fields when you press 'C' button
+function clearButton(){
+    $('#num1').val('');
+    $('#num2').val('');
+}
 //send our input data to the server
 function postHistory(event){
     event.preventDefault();
@@ -34,8 +39,6 @@ function postHistory(event){
         }
     }).then(function(response){
         console.log('postHistory function works!');
-        $('#num1').val('');
-        $('#num2').val('');
         getHistory();
         getCalcHistory();
     }).catch(function(error){
