@@ -18,3 +18,62 @@ body{
     display: inline-block;
     padding: 10px;
 }
+#form{
+    height: 240px;
+    background-color: grey;
+    display:inline-block;
+    padding: 10px;
+
+}
+#clearHistoryBtn{
+    height: 190px;
+    position: relative; 
+    top: 83px;
+
+}
+#buttons-and-input{
+    position: relative;
+    top: -70px;
+}
+.numberBtn{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    top: -80px;
+    left: 4px;
+}
+#plus{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    top: -80px;
+    left: 4px;
+}
+#minus {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    top: -80px;
+    left: 4px;
+}
+#multiply{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    top: -80px;
+    left: 4px;
+}
+#divide{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    top: -80px;
+    left: 4px;
+}
+#enterBtn{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    top: -80px;
+    left: 4px;
+}
